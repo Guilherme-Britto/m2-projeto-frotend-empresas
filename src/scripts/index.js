@@ -1,13 +1,31 @@
-import { getEmpresas, getSectors, getEmpresasBySector } from "./requests.js";
+import { getEmpresas, getSectors, getEmpresasBySector, permission } from "./requests.js";
 
+async function avoidPage() {
 
-export function renderEmpresas(array) {
+  const is_admin = await permission
+
+  if (!is_admin) {
+    return is_admin
+  }
+  else if (!is_admin.is_admin) {
+    console.log(is_admin)
+    window.location.replace('/src/pages/user.html')
+  }
+  else {
+    window.location.replace('/src/pages/admin.html')
+  }
+}
+
+avoidPage()
+
+export async function renderEmpresas(element) {
 
   const ul = document.querySelector(".companies__container")
-  if(!ul){return null  }
+
+  const list = await getEmpresasBySector(element)
 
   ul.innerText = ""
-  array.forEach(element => {
+  list.forEach(element => {
     const card = createCard(element)
 
     ul.append(card)
@@ -32,11 +50,15 @@ function createCard(element) {
   return li
 }
 
-export function showOptions(array) {
-  const select = document.querySelector("#sectors__companies")
-  if(!select){return null  }
+async function showOptions() {
 
-  array.forEach(element => {
+  const list = await getSectors()
+
+  const select = document.querySelector("#sectors__companies")
+
+  if (!select) { return }
+
+  list.forEach(element => {
     const option = createOption(element)
 
     select.appendChild(option)
@@ -53,12 +75,16 @@ function createOption(element) {
   return option
 }
 
-function renderSelected() {
+async function renderSelected() {
   const select = document.querySelector("select")
+
+  renderEmpresas("")
 
   select.addEventListener('change', (event) => {
 
-    getEmpresasBySector(event.target.value)
+    // getEmpresasBySector(event.target.value)
+
+    renderEmpresas(event.target.value)
   })
 }
 
@@ -92,11 +118,6 @@ function changePages() {
   })
 }
 
-
-await getEmpresas()
-await getSectors()
-changePages()
-
 function modalLogin() {
   const modal = document.querySelector('.login__modal')
   const button = document.querySelector('#vector')
@@ -122,3 +143,5 @@ function modalLogin() {
 }
 
 modalLogin()
+showOptions()
+changePages()

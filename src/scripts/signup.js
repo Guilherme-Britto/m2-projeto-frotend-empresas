@@ -1,3 +1,5 @@
+import { signup, token, validateUser} from "./requests.js";
+
 function modalLogin() {
     const modal = document.querySelector('.login__modal')
     const button = document.querySelector('#vector')
@@ -25,7 +27,7 @@ function changePages() {
 
     button.addEventListener('click', () => {
         window.location.href = "/"
-    
+
     })
 
     const button1 = document.querySelector('.modal__btn__login')
@@ -58,10 +60,26 @@ function changePages() {
     })
 }
 
+async function avoidPage() {
+
+    const is_admin = await validateUser(token)
+
+    if (!is_admin) {
+        return is_admin
+    }
+    else if (!is_admin.is_admin) {
+        console.log(is_admin)
+        window.location.replace('/src/pages/user.html')
+    }
+    else {
+        window.location.replace('/src/pages/admin.html')
+    }
+}
+
+avoidPage()
+
 changePages()
 modalLogin()
-
-import { signup } from "./requests.js";
 
 export function renderSignup() {
     const inputs = document.querySelectorAll('form > input')
@@ -73,7 +91,7 @@ export function renderSignup() {
         event.preventDefault()
         inputs.forEach((input) => {
 
-        newUser[input.id] = input.value
+            newUser[input.id] = input.value
         })
 
         newUser[select.id] = select.value
@@ -86,9 +104,3 @@ export function renderSignup() {
 }
 
 renderSignup()
-
-        // newUser = {
-        //     username: "kezinho",
-        //     password: "1234",
-        //     email:"kenzinho@mail.com",
-        // }

@@ -60,14 +60,19 @@ async function changePages() {
 
 async function avoidPage() {
   const is_admin = await validateUser(token)
-  console.log(is_admin)
-  if (!is_admin.is_admin){
+  if(!is_admin){
+    return is_admin
+  }
+  else if (!is_admin.is_admin){
     console.log(is_admin)
     window.location.replace('/src/pages/user.html')
-
+  }
+  else{
+    window.location.replace('/src/pages/admin.html')
   }
 }
 
+avoidPage()
 changePages()
 modalLogin()
 

@@ -1,0 +1,78 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 0 10% 0 10%;
+}
+
+.logo__container {
+    display: flex;
+    gap: 11px;
+}
+
+#ellipse {
+    height: 16px;
+    display: block;
+}
+
+#logoName {
+    height: 16px;
+    display: block;
+}
+
+.btn__first {
+    height: 48px;
+    width: 130px;
+    border: 1px solid var(--brand-1);
+    color: var(--brand-1);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+main {
+    padding: 104px 10%;
+}
+
+.optionBar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.optionBar button {
+    background-color: var(--brand-1);
+    color: var(--WhiteFixed);
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow-y: auto;
+
+    height: 385px;
+    margin-top: 20px;
+    background-color: var(--Gray);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+
+    padding-left: 30px;
+    margin-top: 30px;
+    width: 489px;
+    height: 196px;
+    background-color: var(--WhiteFixed);
+}
+
+.card div {
+    display: flex;
+    gap: 20px;
+
+    height: 50px;
+    align-self: center;
+}
