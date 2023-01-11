@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link  rel="stylesheet"  type="text/css"  href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"/>
+
+  <link rel="stylesheet" href="./src/styles/globalStyle.css">
+  <link rel="stylesheet" href="./src/styles/reset.css">
+  <link rel="stylesheet" href="./src/styles/index.css">
+  <link rel="stylesheet" href="./src/styles/header.css">
+
+  <script  defer type="module" src="./src/scripts/requests.js"></script>
+  <!-- <script type="module" defer src="./src/scripts/index.js"></script> -->
+
+  <title>Kenzie Empresas</title>
+</head>
+
+<body>
+  <header>
+    <div class="logo__container">
+      <img id="ellipse" src="./src/assets/Ellipse 1.svg" alt="">
+      <img id="logoName" src="./src/assets/Kenzie Empresas.svg" alt="Kenzie Empresas">
+    </div>
+    <div class="header__buttons">
+      <button class="header__btn__login btn__first" >Login</button>
+      <button class="header__btn__signup btn__second">Cadastro</button>
+      <img id="vector" class="openModal" src="./src/assets/Vector.svg" alt="">
+    </div>
+
+    <dialog class="login__modal">
+      <button class="modal__btn__login btn__first">Login</button>
+      <button class="modal__btn__signup btn__second">Cadastro</button>
+    </dialog>
+  </header>
+
+  <main>
+    <img src="./src/assets/Rectangle 6.svg" alt="">
+
+    <div>
+    <select id="sectors__companies">
+      <option value="">Selecionar Setor</option>
+    </select>
+
+    <ul class="companies__container">
+    </ul>
+
+    </section>
+  </main>
+  
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
+</body>
+</html>

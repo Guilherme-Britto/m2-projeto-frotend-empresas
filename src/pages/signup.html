@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../styles/globalStyle.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/signup.css">
+
+    <!-- <script type="module" defer src="../scripts/requests.js"></script> -->
+    <script type="module" defer src="../scripts/signup.js"></script>
+
+
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo__container">
+          <img id="ellipse" src="../assets/Ellipse 1.svg" alt="">
+          <img id="logoName" src="../assets/Kenzie Empresas.svg" alt="Kenzie Empresas">
+        </div>
+        <div class="header__buttons">
+          <button class="header__btn__login btn__first" >Home</button>
+          <button class="header__btn__signup btn__second">Login</button>
+          <img id="vector" class="openModal" src="../assets/Vector.svg" alt="">
+        </div>
+    
+        <dialog class="login__modal">
+          <button class="modal__btn__login btn__first">Home</button>
+          <button class="modal__btn__signup btn__second">Login</button>
+        </dialog>
+      </header>
+      <main>
+        <form>
+            <h2>Cadastre-se</h2>
+            <input type="text" name="username" id="username" placeholder="Seu nome">
+            <input type="text" name="email" id="email" placeholder="Seu e-mail">
+            <input type="text" name="password" id="password" placeholder="Sua senha">
+            <button type="submit" id="signupBtn" >Cadastre-se</button>
+            <button id="home" >Retornar</button>
+
+        </form>
+      </main>
+</body>
+</html>

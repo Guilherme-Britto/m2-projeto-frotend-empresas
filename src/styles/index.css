@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+body{
+  font-family: 'Inter', sans-serif;
+}
+
+main{
+    margin-top: 25px;
+}
+
+select{
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    height: 52px;
+    background-color: var(--brand-1);
+    color: var(--WhiteFixed);
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.companies__container{
+    display: flex;
+    margin-left: 5%;
+    overflow-x: scroll;
+    gap: 20px;
+    height: 280px;
+    align-items: center;
+    background-color: var(--Gray);
+}
+
+.companies__div{
+    display: flex;
+    flex-direction: column;
+
+    height: 145px;
+    background-color: var(--WhiteFixed);
+    padding: 13px 0 30px 15px;
+    border-bottom: 1px solid var(--brand-1);
+}
+
+.companies__div p{
+    width: 241px;
+}
+
+.companies__div h2{
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 74px;
+}
+
+.companies__div p{
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 22px;
+}
+
+.companies__div span{
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--brand-1);
+    border: 1px solid var(--brand-1);
+    border-radius: 255px;
+    padding: 6px 16px;
+}
+
+img {
+    display: none;
+}
+
+@media (min-width: 769px){
+    img{
+        display: block;
+        height: 420px;
+    }
+    main{
+        display: flex;
+        padding: 0 10%;
+    }
+    main div{
+        width: 60%;
+        margin-left: 5%;
+    }
+    select{
+        width: 100%;
+    }
+    .companies__container{
+        flex-direction: column;
+        width: 100%;
+        height: 600px;
+        padding-top: 26px;
+        margin-left: 0;
+    }
+    .companies__div{
+        width: 75%;
+        height: 80px;
+        margin-left: 0;
+    }
+    .companies__div h2{
+        margin-bottom: 13px;
+    }
+    .companies__div p{
+        margin-bottom: 13px;
+    }
+    .companies__div span{
+        margin-bottom: 13px;
+    }
+  }
+
+  @media (min-width: 1180px){
+    img{
+        height: 600px;
+    }
+  }
+
+  @media (min-width: 1400px){
+    img{
+        height: 743px;
+    }
+    .companies__container{
+        height: 670px;
+    }
+  }

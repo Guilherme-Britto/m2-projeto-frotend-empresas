@@ -1,0 +1,29 @@
+
+main{
+    background-image:url('../assets/Rectangle 7.svg');
+    height: 100vh;
+
+    background-position: center top;
+    
+}
+
+form{
+    background-color: rgba(255, 255, 255, 0.95);
+    position: relative;
+    top: 28px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 15px ;
+    max-width: 506px;
+    margin: 0 auto;
+}
+
+form span{
+    align-self: center;
+}
+
+@media (min-width: 769px){
+    form{
+        top: 145px;
+    }
+}
