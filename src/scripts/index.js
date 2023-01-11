@@ -2,7 +2,10 @@ import { getEmpresas, getSectors, getEmpresasBySector } from "./requests.js";
 
 
 export function renderEmpresas(array) {
+
   const ul = document.querySelector(".companies__container")
+  if(!ul){return null  }
+
   ul.innerText = ""
   array.forEach(element => {
     const card = createCard(element)
@@ -30,7 +33,8 @@ function createCard(element) {
 }
 
 export function showOptions(array) {
-  const select = document.querySelector("select")
+  const select = document.querySelector("#sectors__companies")
+  if(!select){return null  }
 
   array.forEach(element => {
     const option = createOption(element)

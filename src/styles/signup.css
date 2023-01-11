@@ -13,13 +13,53 @@ form{
     top: 28px;
     display: flex;
     flex-direction: column;
-    padding: 40px 15px ;
+    padding: 40px;
     max-width: 506px;
     margin: 0 auto;
 }
 
-form span{
-    align-self: center;
+
+form h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+form input{
+    height: 52px;
+    border-color: #00000030;
+
+    margin-bottom: 20px;
+}
+
+select{
+    height: 52px;
+    border-color: #00000030;
+
+    margin-bottom: 20px;
+}
+
+form button{
+    height: 52px;
+}
+
+#signupBtn{
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    margin-bottom: 14px;
+
+    color: var(--WhiteFixed);
+    background-color: var(--brand-1);
+}
+
+#home{
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    color: var(--brand-1);
+    border: solid 1px var(--brand-1);
 }
 
 @media (min-width: 769px){

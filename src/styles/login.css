@@ -18,9 +18,54 @@ form{
     margin: 0 auto;
 }
 
+form h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+form p{
+    font-size: 1.2rem;
+
+    margin-bottom: 20px;
+}
+
+form input{
+    height: 52px;
+    color: #00000030;
+    border-color: #00000030;
+
+    margin-bottom: 20px;
+}
+
+form button{
+    height: 52px;
+}
+
+#loginBtn{
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    margin-bottom: 14px;
+
+    color: var(--WhiteFixed);
+    background-color: var(--brand-1);
+}
+
 form span{
     align-self: center;
+    margin-bottom: 14px;
 }
+
+#signup{
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    color: var(--brand-1);
+    border: solid 1px var(--brand-1);
+}
+
 
 @media (min-width: 769px){
     form{

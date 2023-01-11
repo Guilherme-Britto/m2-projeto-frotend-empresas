@@ -6,8 +6,8 @@ function modalLogin() {
 
     button.addEventListener('click', () => {
 
-        modal.showModal()
         button.src = '../assets/VectorX.svg'
+        modal.showModal()
     })
 
 
@@ -15,7 +15,7 @@ function modalLogin() {
         if (event.target.nodeName === 'DIALOG') {
 
             button.src = '../assets/Vector.svg'
-            dialog.close();
+            dialog.close()
         }
     })
 }
@@ -24,14 +24,14 @@ function changePages() {
     const button = document.querySelector('.header__btn__login')
 
     button.addEventListener('click', () => {
-        window.location.href = "/";
-
+        window.location.href = "/"
+    
     })
 
     const button1 = document.querySelector('.modal__btn__login')
 
     button1.addEventListener('click', () => {
-        window.location.href = "/";
+        window.location.href = "/"
 
     })
 
@@ -48,6 +48,14 @@ function changePages() {
         window.location.replace('/src/pages/login.html')
 
     })
+
+    const button4 = document.querySelector('#home')
+
+    button4.addEventListener('click', (event) => {
+        event.preventDefault();
+        window.location.href = "/"
+
+    })
 }
 
 changePages()
@@ -58,16 +66,19 @@ import { signup } from "./requests.js";
 export function renderSignup() {
     const inputs = document.querySelectorAll('form > input')
     const button = document.querySelector("#signupBtn")
+    const select = document.querySelector("#professional_level")
     const newUser = {}
 
     button.addEventListener("click", async (event) => {
-        event.preventDefault();
+        event.preventDefault()
         inputs.forEach((input) => {
 
-        newUser[input.id] = input.value;
+        newUser[input.id] = input.value
         })
 
-        console.log(newUser)
+        newUser[select.id] = select.value
+
+        // console.log(newUser)
         signup(newUser)
         return newUser
     })
