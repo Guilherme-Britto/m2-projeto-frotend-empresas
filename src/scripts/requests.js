@@ -167,9 +167,12 @@ export async function createDepartment(data) {
         body: JSON.stringify(data)
     })
 
-    const newDepartmentrJson = await newDepartment.json();
+    if (newDepartment.ok) {
 
-    return newDepartmentrJson;
+        window.location.replace('/src/pages/admin.html')
+        }
+
+    return newDepartment;
 }
 
 export async function deleteDepartment(uuid) {
@@ -182,5 +185,10 @@ export async function deleteDepartment(uuid) {
         },
     })
 
+    if (deletedDepartment.ok) {
+
+    window.location.replace('/src/pages/admin.html')
+    }
+    
     return deletedDepartment;
 }
