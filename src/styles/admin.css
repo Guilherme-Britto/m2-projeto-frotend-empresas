@@ -82,8 +82,6 @@ main {
 }
 
 .createDepartmentModal{
-    display: flex;
-    
     width: 500px;
     height: 600px;
 }
@@ -92,4 +90,6 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
+    height: 95%;
 }

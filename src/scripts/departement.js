@@ -1,10 +1,9 @@
-import { companies, getDepartmentByCompanie } from "./requests.js";
+import { companies, getDepartmentByCompanie, createDepartment, deleteDepartment } from "./requests.js";
 
 
 async function renderDepartment(element) {
 
     const ul = document.querySelector(".departments")
-
 
     const list = await getDepartmentByCompanie(element)
 
@@ -13,6 +12,8 @@ async function renderDepartment(element) {
         const card = createCard(item)
 
         ul.append(card)
+        renderDeleteDepartment()
+
     })
 }
 
@@ -37,6 +38,9 @@ function createCard(element) {
     img1.src = "../assets/VectorEdit.svg"
     img2.src = "../assets/VectorTrash.svg"
 
+    img2.id = element.uuid
+    img2.classList = "deleteDepartment"
+
     div.append(img, img1, img2)
     li.append(h3, span, span1, div)
 
@@ -46,7 +50,7 @@ function createCard(element) {
 async function showOptions() {
 
     const list = await companies()
-    console.log(list)
+
     const select = document.querySelector("#companies")
 
     list.forEach(element => {
@@ -114,19 +118,33 @@ async function renderNewDepartment() {
 
     button.addEventListener("click", async (event) => {
         event.preventDefault()
+
         inputs.forEach((input) => {
-        
-        newDepartment["company_uuid"] = input.value
+
+        newDepartment[input.id] = input.value
         })
+        newDepartment["company_uuid"] = select.value
 
-        newDepartment[select.id] = select.value
 
-        console.log(newDepartment)
-        // createDepartment(newDepartment)
-        newDepartment    })
+        createDepartment(newDepartment)
+        return newDepartment
+    })
 
 }
 
+async function renderDeleteDepartment() {
+
+    const inputs = document.querySelectorAll('.deleteDepartment')
+    inputs.forEach(element => {
+
+        element.addEventListener('click', (event) => {
+
+            deleteDepartment(element.id)
+        })
+
+    })
+
+}
 
 showOptions()
 modalCreate()

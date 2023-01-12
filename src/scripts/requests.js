@@ -14,7 +14,7 @@ export function getUser() {
 export const { token } = getUser() || ""
 
 export async function validateUser(data) {
-    if(!token){
+    if (!token) {
         return token
     }
     const validated = await fetch(`http://localhost:6278/auth/validate_user`, {
@@ -71,7 +71,7 @@ export async function getEmpresasBySector(element) {
     })
 
     const listJson = await list.json();
-    
+
     return listJson
 }
 
@@ -112,7 +112,7 @@ export async function login(data) {
     return loginUserJson;
 }
 
-export async function companies(){
+export async function companies() {
 
     const list = await fetch(`http://localhost:6278/companies`, {
         method: "GET",
@@ -157,7 +157,7 @@ export async function getAllUsers() {
     return listJson
 }
 
-export async function createDepartment (data) {
+export async function createDepartment(data) {
     const newDepartment = await fetch(`http://localhost:6278/departments`, {
         method: "POST",
         headers: {
@@ -167,11 +167,20 @@ export async function createDepartment (data) {
         body: JSON.stringify(data)
     })
 
-    const newDepartmentrJson = await loginUser.json();
-    localStorage.setItem('@kenzieEmpresas:token', JSON.stringify(loginUserJson))
-    if (newDepartment.ok) {
+    const newDepartmentrJson = await newDepartment.json();
 
-        console.log(newDepartmentrJson)
-    }
     return newDepartmentrJson;
+}
+
+export async function deleteDepartment(uuid) {
+
+    const deletedDepartment = await fetch(`http://localhost:6278/departments/${uuid}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+    })
+
+    return deletedDepartment;
 }
