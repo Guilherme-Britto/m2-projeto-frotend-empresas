@@ -1,4 +1,4 @@
-// import { renderEmpresas } from "./index.js";
+
 
 const requestHeaders = {
     "Content-Type": "application/json",
@@ -26,7 +26,6 @@ export async function validateUser(data) {
     })
 
     const validatedJson = await validated.json();
-    // console.log(validatedJson)
     return validatedJson
 }
 
@@ -56,8 +55,7 @@ export async function getSectors() {
     })
 
     const listJson = await list.json();
-    // showOptions(listJson)
-    // console.log(listJson)
+
     return listJson
 }
 
@@ -73,6 +71,7 @@ export async function getEmpresasBySector(element) {
     })
 
     const listJson = await list.json();
+    
     return listJson
 }
 
@@ -124,6 +123,55 @@ export async function companies(){
     })
 
     const listJson = await list.json();
-    console.log(listJson)
+
     return listJson
+}
+
+export async function getDepartmentByCompanie(element) {
+
+    const list = await fetch(`http://localhost:6278/departments/${element}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        }
+    })
+
+    const listJson = await list.json();
+    return listJson
+}
+
+export async function getAllUsers() {
+
+    const list = await fetch(`http://localhost:6278/users`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        }
+    })
+
+
+    const listJson = await list.json();
+
+    return listJson
+}
+
+export async function createDepartment (data) {
+    const newDepartment = await fetch(`http://localhost:6278/departments`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data)
+    })
+
+    const newDepartmentrJson = await loginUser.json();
+    localStorage.setItem('@kenzieEmpresas:token', JSON.stringify(loginUserJson))
+    if (newDepartment.ok) {
+
+        console.log(newDepartmentrJson)
+    }
+    return newDepartmentrJson;
 }

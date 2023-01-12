@@ -2,186 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 
-    <link rel="stylesheet" href="../styles/globalStyle.css">
-    <link rel="stylesheet" href="../styles/reset.css">
-    <link rel="stylesheet" href="../styles/admin.css">
+  <link rel="stylesheet" href="../styles/globalStyle.css">
+  <link rel="stylesheet" href="../styles/reset.css">
+  <link rel="stylesheet" href="../styles/admin.css">
 
-    <script type="module" defer src="../scripts/admin.js"></script>
+  <script type="module" defer src="../scripts/admin.js"></script>
+  <script type="module" defer src="../scripts/departement.js"></script>
+  <script type="module" defer src="../scripts/users.js"></script>
 
 </head>
 
 <body>
-    <header>
-        <div class="logo__container">
-            <img id="ellipse" src="../assets/Ellipse 1.svg" alt="">
-            <img id="logoName" src="../assets/Kenzie Empresas.svg" alt="Kenzie Empresas">
+  <header>
+    <div class="logo__container">
+      <img id="ellipse" src="../assets/Ellipse 1.svg" alt="">
+      <img id="logoName" src="../assets/Kenzie Empresas.svg" alt="Kenzie Empresas">
+    </div>
+    <div class="header__buttons">
+      <button class="header__btn__login btn__first">Logout</button>
+    </div>
+  </header>
+  <main>
+    <div class="optionBar">
+      <h2>Departamentos</h2>
+      <select name="companies" id="companies">
+        <option value="">Selecionar Empresa</option>
+      </select>
+      <button class="createDepartmentBtn"><img src="../assets/VectorPlus.svg"  alt="plus">Criar</button>
+    </div>
+    <ul class="cards departments">
+      <li class="card">
+        <h3>Department Name</h3>
+        <span>Department Description</span>
+        <span>Company Name</span>
+        <div>
+          <img src="../assets/VectorEye.svg" alt="look">
+          <img src="../assets/VectorEdit.svg" alt="edit">
+          <img src="../assets/VectorTrash.svg" alt="delete">
         </div>
-        <div class="header__buttons">
-            <button class="header__btn__login btn__first">Logout</button>
-        </div>
-    </header>
-    <main>
-        <div class="optionBar">
-            <h2>Departamentos</h2>
-            <select name="companies" id="companies">
-                <option value="">Empresa skmdlksdm</option>
-                <option value="">Empresa skmdlksdm</option>
-            </select>
-            <button><img src="../assets/VectorPlus.svg" alt="plus">Criar</button>
-        </div>
-        <section class="cards">
-            <div class="card">
-                <h3>Department Name</h3>
-                <span>Department Description</span>
-                <span>Company Name</span>
-                <div>
-                    <img src="../assets/VectorEye.svg" alt="look">
-                    <img src="../assets/VectorEdit.svg" alt="edit">
-                    <img src="../assets/VectorTrash.svg" alt="delete">
-                </div>
-            </div>
-            <div class="card">
-                <h3>Department Name</h3>
-                <span>Department Description</span>
-                <span>Company Name</span>
-                <div>
-                    <img src="../assets/VectorEye.svg" alt="look">
-                    <img src="../assets/VectorEdit.svg" alt="edit">
-                    <img src="../assets/VectorTrash.svg" alt="delete">
-                </div>
-            </div>
-            <div class="card">
-                <h3>Department Name</h3>
-                <span>Department Description</span>
-                <span>Company Name</span>
-                <div>
-                    <img src="../assets/VectorEye.svg" alt="look">
-                    <img src="../assets/VectorEdit.svg" alt="edit">
-                    <img src="../assets/VectorTrash.svg" alt="delete">
-                </div>
-            </div>
-            <div class="card">
-                <h3>Department Name</h3>
-                <span>Department Description</span>
-                <span>Company Name</span>
-                <div>
-                    <img src="../assets/VectorEye.svg" alt="look">
-                    <img src="../assets/VectorEdit.svg" alt="edit">
-                    <img src="../assets/VectorTrash.svg" alt="delete">
-                </div>
-            </div>
-            <div class="card">
-                <h3>Department Name</h3>
-                <span>Department Description</span>
-                <span>Company Name</span>
-                <div>
-                    <img src="../assets/VectorEye.svg" alt="look">
-                    <img src="../assets/VectorEdit.svg" alt="edit">
-                    <img src="../assets/VectorTrash.svg" alt="delete">
-                </div>
-            </div>
-            <div class="card">
-                <h3>Department Name</h3>
-                <span>Department Description</span>
-                <span>Company Name</span>
-                <div>
-                    <img src="../assets/VectorEye.svg" alt="look">
-                    <img src="../assets/VectorEdit.svg" alt="edit">
-                    <img src="../assets/VectorTrash.svg" alt="delete">
-                </div>
-            </div>
-            <div class="card">
-                <h3>Department Name</h3>
-                <span>Department Description</span>
-                <span>Company Name</span>
-                <div>
-                    <img src="../assets/VectorEye.svg" alt="look">
-                    <img src="../assets/VectorEdit.svg" alt="edit">
-                    <img src="../assets/VectorTrash.svg" alt="delete">
-                </div>
-            </div>
-        </section>  
-        <h2>Usuários cadastrados</h2>
-        <section class="cards">
-            <div class="card">
-                <h3>Username</h3>
-                <span>Pleno</span>
-                <span>Company Name</span>
-                <div>
-                    <img src="../assets/VectorEdit.svg" alt="edit">
-                    <img src="../assets/VectorTrash.svg" alt="delete">
-                </div>
-            </div>
-            <div class="card">
-                <h3>Username</h3>
-                <span>Pleno</span>
-                <span>Company Name</span>
-                <div>
-                    <img src="../assets/VectorEdit.svg" alt="edit">
-                    <img src="../assets/VectorTrash.svg" alt="delete">
-                </div>
-            </div>
-            <div class="card">
-                <h3>Username</h3>
-                <span>Pleno</span>
-                <span>Company Name</span>
-                <div>
-                    <img src="../assets/VectorEdit.svg" alt="edit">
-                    <img src="../assets/VectorTrash.svg" alt="delete">
-                </div>
-            </div>
-            <div class="card">
-                <h3>Username</h3>
-                <span>Pleno</span>
-                <span>Company Name</span>
-                <div>
-                    <img src="../assets/VectorEdit.svg" alt="edit">
-                    <img src="../assets/VectorTrash.svg" alt="delete">
-                </div>
-            </div>
-            <div class="card">
-                <h3>Username</h3>
-                <span>Pleno</span>
-                <span>Company Name</span>
-                <div>
-                    <img src="../assets/VectorEdit.svg" alt="edit">
-                    <img src="../assets/VectorTrash.svg" alt="delete">
-                </div>
-            </div>
-            <div class="card">
-                <h3>Username</h3>
-                <span>Pleno</span>
-                <span>Company Name</span>
-                <div>
-                    <img src="../assets/VectorEdit.svg" alt="edit">
-                    <img src="../assets/VectorTrash.svg" alt="delete">
-                </div>
-            </div>
-            <div class="card">
-                <h3>Username</h3>
-                <span>Pleno</span>
-                <span>Company Name</span>
-                <div>
-                    <img src="../assets/VectorEdit.svg" alt="edit">
-                    <img src="../assets/VectorTrash.svg" alt="delete">
-                </div>
-            </div>
-            <div class="card">
-                <h3>Username</h3>
-                <span>Pleno</span>
-                <span>Company Name</span>
-                <div>
-                    <img src="../assets/VectorEdit.svg" alt="edit">
-                    <img src="../assets/VectorTrash.svg" alt="delete">
-                </div>
-            </div>
-        </section>
-    </main>
-</body>
+      </li>
+    </ul>
 
+    <h2>Usuários cadastrados</h2>
+    <ul class="cards users">
+      <li class="card">
+        <h3>Username</h3>
+        <span>Pleno</span>
+        <span>Company Name</span>
+        <div>
+          <img src="../assets/VectorEdit.svg" alt="edit">
+          <img src="../assets/VectorTrash.svg" alt="delete">
+        </div>
+      </li>
+
+    </ul>
+  </main>
+
+</body>
+<dialog class="createDepartmentModal">
+  <span>X</span>
+  <form class="createDepartmentForm">
+    <h2>Criar Departamento</h2>
+    <input id="name" placeholder="Nome do departamento" type="text">
+    <input id="description" placeholder="Descrição" type="text">
+    <select id="companiesForDepartments">
+      <option value="">Selecionar empresa</option>
+    </select>
+    <button type="submit">Criar o departamento</button>
+  </form>
+</dialog>
 </html>

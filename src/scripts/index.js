@@ -56,8 +56,6 @@ async function showOptions() {
 
   const select = document.querySelector("#sectors__companies")
 
-  if (!select) { return }
-
   list.forEach(element => {
     const option = createOption(element)
 
@@ -81,8 +79,6 @@ async function renderSelected() {
   renderEmpresas("")
 
   select.addEventListener('change', (event) => {
-
-    // getEmpresasBySector(event.target.value)
 
     renderEmpresas(event.target.value)
   })

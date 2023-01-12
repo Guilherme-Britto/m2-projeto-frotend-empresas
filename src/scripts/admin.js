@@ -1,4 +1,5 @@
-import { permission, companies } from "./requests.js";
+
+import { permission, } from "./requests.js";
 
 
 async function avoidPage() {
@@ -9,14 +10,14 @@ async function avoidPage() {
         window.location.href = "/"
     }
     else if (!is_admin.is_admin) {
-      console.log(is_admin)
-      window.location.replace('/src/pages/user.html')
+        console.log(is_admin)
+        window.location.replace('/src/pages/user.html')
     }
     else return
-  }
+}
 
 
-function logout(){
+function logout() {
     const button = document.querySelector(".btn__first")
 
     button.addEventListener('click', () => {
@@ -29,4 +30,3 @@ function logout(){
 logout()
 avoidPage()
 
-companies()
