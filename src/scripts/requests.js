@@ -94,6 +94,7 @@ export async function signup(data) {
 }
 
 export async function login(data) {
+
     const loginUser = await fetch(`http://localhost:6278/auth/login`, {
         method: "POST",
         headers: {
@@ -106,7 +107,6 @@ export async function login(data) {
     localStorage.setItem('@kenzieEmpresas:token', JSON.stringify(loginUserJson))
     if (loginUser.ok) {
 
-        console.log(loginUserJson)
         window.location.replace('/src/pages/login.html')
     }
     return loginUserJson;
@@ -191,4 +191,38 @@ export async function deleteDepartment(uuid) {
     }
     
     return deletedDepartment;
+}
+
+export async function editDepartment(data, id) {
+
+    const editedDepartment = await fetch(`http://localhost:6278/departments/${id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data)
+    })
+
+    if (editedDepartment.ok) {
+
+        window.location.replace('/src/pages/admin.html')
+        }
+
+    return editedDepartment;
+}
+
+export async function outOfWork() {
+
+    const list = await fetch(`http://localhost:6278/admin/out_of_work`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        }
+    })
+
+    const listJson = await list.json();
+
+    return listJson
 }

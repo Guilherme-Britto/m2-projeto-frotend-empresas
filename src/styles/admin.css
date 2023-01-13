@@ -81,15 +81,31 @@ main {
     font-weight: 700;
 }
 
-.createDepartmentModal{
+dialog{
     width: 500px;
     height: 600px;
 }
 
-.createDepartmentModal form{
+dialog form{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 
     height: 95%;
+}
+
+.viewDepartmentForm{
+    display: block;
+}
+
+.viewDepartmentForm div{
+    display: flex;
+    justify-content: space-around;
+
+    height: 95%;
+}
+
+.viewDepartmentForm div div{
+    display: flex;
+    flex-direction: column;
 }

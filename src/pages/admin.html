@@ -31,7 +31,7 @@
     <div class="optionBar">
       <h2>Departamentos</h2>
       <select name="companies" id="companies">
-        <option value="">Selecionar Empresa</option>
+        <option value="">Todas Empresas</option>
       </select>
       <button class="createDepartmentBtn"><img src="../assets/VectorPlus.svg"  alt="plus">Criar</button>
     </div>
@@ -67,7 +67,7 @@
 
 
 
-<dialog class="createDepartmentModal">
+<dialog class="createDepartmentModal ">
   <span>X</span>
   <form class="createDepartmentForm">
     <h2>Criar Departamento</h2>
@@ -79,4 +79,33 @@
     <button type="submit">Criar o departamento</button>
   </form>
 </dialog>
+
+<dialog class="editDepartmentModal">
+  <span>X</span>
+  <form class="editDepartmentForm">
+    <h2>Editar Departamento</h2>
+    <input id="descriptionEdit" type="text">
+    <button type="submit">Editar departamento</button>
+  </form>
+</dialog>
+
+<dialog class="viewDepartmentModal">
+  <span>X</span>
+  <form class="viewDepartmentForm">
+    <h2>Nome do departamento</h2>
+    <div>
+      <div>
+        <p id="descriptionView" >Descrição do departamento</p>
+        <span id="nameView">Empresa pertencente</span>
+      </div>
+      <div>
+        <select name="" id="companiesView">
+          <option value="">Selecionar usuário</option>
+        </select>
+        <button class="hireBtn" type="submit">Contratar</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+
 </html>

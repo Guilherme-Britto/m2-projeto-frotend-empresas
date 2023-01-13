@@ -1,20 +1,24 @@
-import { companies, getDepartmentByCompanie, createDepartment, deleteDepartment } from "./requests.js";
+import { companies, getDepartmentByCompanie, createDepartment, deleteDepartment, editDepartment, outOfWork } from "./requests.js";
 
 
 async function renderDepartment(element) {
-
+    
     const ul = document.querySelector(".departments")
 
     const list = await getDepartmentByCompanie(element)
 
     ul.innerText = ""
     list.forEach(item => {
+        console.log(item)
         const card = createCard(item)
 
         ul.append(card)
-        renderDeleteDepartment()
 
     })
+
+    // modalView()
+    modalEdit()
+    renderDeleteDepartment()
 }
 
 function createCard(element) {
@@ -37,6 +41,28 @@ function createCard(element) {
     img.src = "../assets/VectorEye.svg"
     img1.src = "../assets/VectorEdit.svg"
     img2.src = "../assets/VectorTrash.svg"
+
+    img.id = element.uuid
+    img.classList = `viewDepartmentBtn`
+
+    img.addEventListener('click', () => {
+
+        const modal = document.querySelector('.viewDepartmentModal')
+
+        modal.showModal()
+
+        const p = document.querySelector('#descriptionView')
+        const span = document.querySelector('#nameView')
+
+        p.innerText = element.description
+        span.innerText = element.name
+
+        showOptionsUser()
+        hireUser(element.id)
+    })
+
+    img1.id = element.uuid
+    img1.classList = `editDepartmentBtn ${element.description}`
 
     img2.id = element.uuid
     img2.classList = "deleteDepartment"
@@ -121,7 +147,7 @@ async function renderNewDepartment() {
 
         inputs.forEach((input) => {
 
-        newDepartment[input.id] = input.value
+            newDepartment[input.id] = input.value
         })
         newDepartment["company_uuid"] = select.value
 
@@ -145,6 +171,117 @@ async function renderDeleteDepartment() {
     })
 
 }
+
+function modalEdit() {
+
+    const modal = document.querySelector('.editDepartmentModal')
+    const buttons = document.querySelectorAll('.editDepartmentBtn')
+
+    buttons.forEach(element => {
+
+        element.addEventListener('click', () => {
+
+            modal.showModal()
+
+            const input = document.querySelector('#descriptionEdit')
+
+            const description = element.classList.value.slice(18)
+
+            input.value = description
+            renderEdit(element.id)
+        })
+    })
+}
+
+async function renderEdit(id) {
+    const input = document.querySelector('.editDepartmentForm > input')
+    const button = document.querySelector('.editDepartmentForm > button')
+
+
+    const editDepartmentData = {}
+
+    button.addEventListener("click", async (event) => {
+        event.preventDefault()
+
+        editDepartmentData.description = input.value
+        editDepartment(editDepartmentData, id)
+    })
+}
+
+// function modalView(name) {
+
+//     const modal = document.querySelector('.viewDepartmentModal')
+//     const buttons = document.querySelectorAll('.viewDepartmentBtn')
+
+//     buttons.forEach(element => {
+
+//         element.addEventListener('click', () => {
+
+//             modal.showModal()
+
+//             const p = document.querySelector('#descriptionView')
+//             const span = document.querySelector('#nameView')
+
+//             const description = element.classList.value.slice(18)
+
+//             console.log(span)
+//             console.log(name)
+
+//             p.innerText = description
+//             span.innerText = name
+
+//             showOptionsUser()
+//             hireUser(element.id)
+//         })
+//     })
+// }
+
+async function showOptionsUser() {
+
+    const list = await outOfWork()
+
+    const select = document.querySelector("#companiesView")
+
+    list.forEach(element => {
+
+        const option = createOptionUser(element)
+
+        select.appendChild(option)
+    })
+
+}
+
+function createOptionUser(element) {
+    const option = document.createElement('option')
+
+    option.innerText = element.username
+    option.value = element.uuid
+
+    return option
+}
+
+async function hireUser(departmentId){
+
+    const hire = {}
+
+    const select = document.querySelector("#companiesView")
+
+    const button = document.querySelector('.hireBtn')
+    console.log(departmentId)
+
+    button.addEventListener('click', (event) =>  {
+        event.preventDefault()
+
+        hire["department_uuid"] = departmentId
+        hire["user_uuid"] = select.value
+ 
+        console.log(hire)
+    })
+
+
+
+}
+
 
 showOptions()
 modalCreate()
