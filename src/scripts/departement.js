@@ -1,23 +1,21 @@
-import { companies, getDepartmentByCompanie, createDepartment, deleteDepartment, editDepartment, outOfWork } from "./requests.js";
+import { companies, getDepartmentByCompanie, createDepartment, deleteDepartment, editDepartment, outOfWork, hireUser } from "./requests.js";
 
 
 async function renderDepartment(element) {
-    
+
     const ul = document.querySelector(".departments")
 
     const list = await getDepartmentByCompanie(element)
 
     ul.innerText = ""
     list.forEach(item => {
-        console.log(item)
+
         const card = createCard(item)
 
         ul.append(card)
 
     })
 
-    // modalView()
-    modalEdit()
     renderDeleteDepartment()
 }
 
@@ -58,11 +56,28 @@ function createCard(element) {
         span.innerText = element.name
 
         showOptionsUser()
-        hireUser(element.id)
+        renderHireUser(element.uuid)
     })
 
     img1.id = element.uuid
     img1.classList = `editDepartmentBtn ${element.description}`
+
+
+
+    img1.addEventListener('click', () => {
+
+        const modal = document.querySelector('.editDepartmentModal')
+
+        modal.showModal()
+
+        const input = document.querySelector('#descriptionEdit')
+
+        const description = element.description
+
+        input.value = description
+        renderEdit(element.uuid)
+    })
+
 
     img2.id = element.uuid
     img2.classList = "deleteDepartment"
@@ -172,27 +187,6 @@ async function renderDeleteDepartment() {
 
 }
 
-function modalEdit() {
-
-    const modal = document.querySelector('.editDepartmentModal')
-    const buttons = document.querySelectorAll('.editDepartmentBtn')
-
-    buttons.forEach(element => {
-
-        element.addEventListener('click', () => {
-
-            modal.showModal()
-
-            const input = document.querySelector('#descriptionEdit')
-
-            const description = element.classList.value.slice(18)
-
-            input.value = description
-            renderEdit(element.id)
-        })
-    })
-}
-
 async function renderEdit(id) {
     const input = document.querySelector('.editDepartmentForm > input')
     const button = document.querySelector('.editDepartmentForm > button')
@@ -207,34 +201,6 @@ async function renderEdit(id) {
         editDepartment(editDepartmentData, id)
     })
 }
-
-// function modalView(name) {
-
-//     const modal = document.querySelector('.viewDepartmentModal')
-//     const buttons = document.querySelectorAll('.viewDepartmentBtn')
-
-//     buttons.forEach(element => {
-
-//         element.addEventListener('click', () => {
-
-//             modal.showModal()
-
-//             const p = document.querySelector('#descriptionView')
-//             const span = document.querySelector('#nameView')
-
-//             const description = element.classList.value.slice(18)
-
-//             console.log(span)
-//             console.log(name)
-
-//             p.innerText = description
-//             span.innerText = name
-
-//             showOptionsUser()
-//             hireUser(element.id)
-//         })
-//     })
-// }
 
 async function showOptionsUser() {
 
@@ -260,22 +226,22 @@ function createOptionUser(element) {
     return option
 }
 
-async function hireUser(departmentId){
+async function renderHireUser(departmentId) {
 
     const hire = {}
 
     const select = document.querySelector("#companiesView")
 
     const button = document.querySelector('.hireBtn')
-    console.log(departmentId)
 
-    button.addEventListener('click', (event) =>  {
+    button.addEventListener('click', (event) => {
         event.preventDefault()
 
         hire["department_uuid"] = departmentId
         hire["user_uuid"] = select.value
- 
+
         console.log(hire)
+        hireUser(hire)
     })
 
 

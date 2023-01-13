@@ -226,3 +226,23 @@ export async function outOfWork() {
 
     return listJson
 }
+
+export async function hireUser(data) {
+
+    console.log(data)
+    const editedDepartment = await fetch(`http://localhost:6278/departments/hire/`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data)
+    })
+
+    if (editedDepartment.ok) {
+
+        window.location.replace('/src/pages/admin.html')
+        }
+
+    return editedDepartment;
+}
