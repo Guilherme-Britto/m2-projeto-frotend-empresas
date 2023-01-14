@@ -33,10 +33,10 @@
       <select name="companies" id="companies">
         <option value="">Todas Empresas</option>
       </select>
-      <button class="createDepartmentBtn"><img src="../assets/VectorPlus.svg"  alt="plus">Criar</button>
+      <button class="createDepartmentBtn"><img src="../assets/VectorPlus.svg" alt="plus">Criar</button>
     </div>
     <ul class="cards departments">
-      <li class="card">
+      <!-- <li class="card">
         <h3>Department Name</h3>
         <span>Department Description</span>
         <span>Company Name</span>
@@ -45,12 +45,13 @@
           <img src="../assets/VectorEdit.svg" alt="edit">
           <img src="../assets/VectorTrash.svg" alt="delete">
         </div>
-      </li>
+      </li> -->
     </ul>
 
     <h2>Usuários cadastrados</h2>
     <ul class="cards users">
-      <li class="card">
+
+      <!-- <li class="card">
         <h3>Username</h3>
         <span>Pleno</span>
         <span>Company Name</span>
@@ -58,7 +59,7 @@
           <img src="../assets/VectorEdit.svg" alt="edit">
           <img src="../assets/VectorTrash.svg" alt="delete">
         </div>
-      </li>
+      </li> -->
 
     </ul>
   </main>
@@ -95,7 +96,7 @@
     <h2>Nome do departamento</h2>
     <div>
       <div>
-        <p id="descriptionView" >Descrição do departamento</p>
+        <p id="descriptionView">Descrição do departamento</p>
         <span id="nameView">Empresa pertencente</span>
       </div>
       <div>
@@ -105,7 +106,44 @@
         <button class="hireBtn" type="submit">Contratar</button>
       </div>
     </div>
+    <ul class="cards usersDismiss">
+
+      <li class="card dismissCardList" >
+        <div>
+          <h3>Username</h3>
+          <span>Pleno</span>
+          <span>Company Name</span>
+          <button>Desligar</button>
+        </div>
+      </li>
+
+    </ul>
   </form>
+</dialog>
+
+<dialog class="editUserModal">
+  <span>X</span>
+  <form class="editUsertForm">
+    <h2>Editar Departamento</h2>
+    <select name="" id="kind_of_work">
+      <option hidden value="">Selecionar modalidade de trabalho </option>
+      <option value="home office">Home Office</option>
+      <option value="presencial">Presencial</option>
+      <option value="híbrido">Híbrido</option>
+    </select>
+    <select name="" id="professional_level">
+      <option hidden value="">Selecionar nível profissional </option>
+      <option value="estágio">Estágio</option>
+      <option value="júnior">Júnior</option>
+      <option value="pleno">Pleno</option>
+      <option value="sênior">Sênior</option>
+    </select>
+    <button type="submit">Editar departamento</button>
+  </form>
+</dialog>
+
+<dialog class="deleteUserModal">
+  
 </dialog>
 
 </html>

@@ -109,3 +109,29 @@ dialog form{
     display: flex;
     flex-direction: column;
 }
+
+.viewDepartmentForm{
+    height: 40%;
+}
+
+.usersDismiss{
+    height: 220px;
+    padding: 30px;
+
+    flex-wrap: unset;
+    overflow-y: scroll;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.dismissCardList{
+    width: 306px;
+    margin-top: 0;
+}
+
+.dismissCardList div{
+    width: 306px;
+    background-color: var(--WhiteFixed);
+
+    flex-direction: column;
+}

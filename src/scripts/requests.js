@@ -246,3 +246,107 @@ export async function hireUser(data) {
 
     return editedDepartment;
 }
+
+export async function editUser(data, id) {
+
+    const editedUser = await fetch(`http://localhost:6278/admin/update_user/${id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data)
+    })
+
+    if (editedUser.ok) {
+
+        window.location.replace('/src/pages/admin.html')
+        }
+
+    return editedUser;
+}
+
+export async function deleteUser(id) {
+
+    const deletedUser = await fetch(`http://localhost:6278/admin/delete_user/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+    })
+
+    if (deletedUser.ok) {
+
+        window.location.replace('/src/pages/admin.html')
+        }
+
+    return deletedUser;
+}
+
+export async function dismissUser ( id) {
+
+    const editedDepartment = await fetch(`http://localhost:6278/departments/dismiss/${id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+    })
+
+    if (editedDepartment.ok) {
+
+        window.location.replace('/src/pages/admin.html')
+        }
+
+    return editedDepartment;
+}
+
+export async function getUserInfo() {
+
+    const userInfo = await fetch(`http://localhost:6278/users/profile`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        }
+    })
+
+    const userInfoJson = await userInfo.json();
+
+    return userInfoJson
+}
+
+export async function editUserOwn(data) {
+
+    const editedUser = await fetch(`http://localhost:6278/users`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data)
+    })
+
+    if (editedUser.ok) {
+
+        window.location.replace('/src/pages/user.html')
+        }
+
+    return editedUser;
+}
+
+export async function getCoworkers() {
+
+    const coworkerList = await fetch(`http://localhost:6278/departments/coworkers`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        }
+    })
+
+    const coworkerListJson = await coworkerList.json();
+
+    return coworkerListJson
+}

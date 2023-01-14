@@ -1,4 +1,4 @@
-import { getAllUsers } from "./requests.js";
+import { getAllUsers, editUser, deleteUser } from "./requests.js";
 
 async function renderUser() {
 
@@ -26,6 +26,27 @@ function createCard(element) {
     const img1 = document.createElement('img')
     const img2 = document.createElement('img')
 
+    img1.addEventListener('click', () => {
+
+        const modal = document.querySelector('.editUserModal')
+
+        modal.showModal()
+
+        renderEditUser(element.uuid)
+    })
+
+    img2.addEventListener('click', () => {
+
+        const modal = document.querySelector('.deleteUserModal')
+
+        modal.showModal()
+
+        const h2 = document.querySelector('.deleteUserForm > h2')
+        h2.innerText = `Realmente deseja remover o Usuário ${element.username}`
+
+        renderDeleteUser(element.uuid)
+    })
+
 
     li.classList = "cards"
     h3.innerText = element.username
@@ -47,5 +68,38 @@ function createCard(element) {
 
     return li
 }
+
+async function renderEditUser(id) {
+
+    const selects = document.querySelectorAll('.editUsertForm > select')
+    const button = document.querySelector('.editUsertForm > button')
+
+    const editUserData = {}
+
+    button.addEventListener("click", async (event) => {
+        event.preventDefault()
+        selects.forEach((element) => {
+
+            editUserData[element.id] = element.value
+
+        })
+
+        editUser(editUserData, id)
+    })
+}
+
+async function renderDeleteUser(id) {
+
+    const button = document.querySelector('.deleteUserForm > button')
+
+    button.addEventListener("click", async (event) => {
+        event.preventDefault()
+
+        deleteUser(id)
+    })
+}
+
+
+
 
 renderUser()

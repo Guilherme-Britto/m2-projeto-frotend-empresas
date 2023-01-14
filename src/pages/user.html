@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../styles/globalStyle.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/user.css">
+
+    <script type="module" defer src="../scripts/user.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="logo__container">
+            <img id="ellipse" src="../assets/Ellipse 1.svg" alt="">
+            <img id="logoName" src="../assets/Kenzie Empresas.svg" alt="Kenzie Empresas">
+        </div>
+        <div class="header__buttons">
+            <button class="header__btn__login btn__first">Logout</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="userInfo__container">
+            <!-- <img src="../assets/VectorEditBlue.svg" alt="">
+            <h2>Username</h2>
+            <div>
+                <span>Email: meuemail@mail.com</span>
+                <span>Pleno</span>
+                <span>Home Office</span>
+            </div> -->
+        </section>
+
+        <section class="coworkers__container">
+            <!-- <p>Você ainda não foi contratado</p> -->
+
+            
+        </section>
+    </main>
+
+    <dialog class="editUserModal ">
+        <span>X</span>
+        <form class="editUserForm">
+          <h2>Editar Perfil</h2>
+          <input id="username" placeholder="Seu nome" type="text">
+          <input id="email" placeholder="Seu e-mail" type="text">
+          <input id="password" placeholder="Sua senha" type="text">
+          <button type="submit">Editar perfil</button>
+        </form>
+      </dialog>
+</body>
+
+
+
+</html>

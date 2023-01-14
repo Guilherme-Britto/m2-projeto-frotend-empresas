@@ -1,4 +1,4 @@
-import { companies, getDepartmentByCompanie, createDepartment, deleteDepartment, editDepartment, outOfWork, hireUser } from "./requests.js";
+import { companies, getDepartmentByCompanie, createDepartment, deleteDepartment, editDepartment, outOfWork, hireUser, getAllUsers, dismissUser } from "./requests.js";
 
 
 async function renderDepartment(element) {
@@ -57,10 +57,12 @@ function createCard(element) {
 
         showOptionsUser()
         renderHireUser(element.uuid)
+        renderDismissList(element.uuid)
+
     })
 
     img1.id = element.uuid
-    img1.classList = `editDepartmentBtn ${element.description}`
+    img1.classList = `editDepartmentBtn`
 
 
 
@@ -160,7 +162,7 @@ async function renderNewDepartment() {
     button.addEventListener("click", async (event) => {
         event.preventDefault()
 
-        inputs.forEach((input) => {
+        inputs.forEach(input => {
 
             newDepartment[input.id] = input.value
         })
@@ -243,9 +245,59 @@ async function renderHireUser(departmentId) {
         console.log(hire)
         hireUser(hire)
     })
+}
+
+async function renderDismissList(id){
+
+    const usersList = await getAllUsers()
+
+    const list = usersList.filter( function(element) {
+        if(element.department_uuid == id)
+
+        return element
+    } )
 
 
+    const ul = document.querySelector(".usersDismiss")
 
+
+    ul.innerText = ""
+    list.forEach(element => {
+
+        const card = renderDismissCard(element)
+
+        ul.append(card)
+    })
+}
+
+function renderDismissCard(element) {
+
+    console.log(element)
+
+    const li = document.createElement('li')
+    const div = document.createElement('div')
+    const h3 = document.createElement('h3')
+    const span = document.createElement('span')
+    const span1 = document.createElement('span')
+    const button = document.createElement('button')
+
+    li.classList = "card dismissCardList"
+    h3.innerText = element.username
+    span.innerText = element.professional_level
+    span1.innerText = element.department_uuid
+
+    button.innerText = "Desligar"
+
+    button.addEventListener('click', (event) => {
+        event.preventDefault()
+
+        dismissUser(element.uuid)
+    })
+
+    div.append( h3, span, span1, button)
+
+    li.append(div)
+    return li
 }
 
 
