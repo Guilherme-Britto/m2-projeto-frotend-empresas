@@ -338,7 +338,7 @@ export async function editUserOwn(data) {
 
 export async function getCoworkers() {
 
-    const coworkerList = await fetch(`http://localhost:6278/departments/coworkers`, {
+    const coworkerList = await fetch(`http://localhost:6278/users/departments/coworkers`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -349,4 +349,19 @@ export async function getCoworkers() {
     const coworkerListJson = await coworkerList.json();
 
     return coworkerListJson
+}
+
+export async function getUserCompainieDepartments() {
+
+    const userCompainieDepartmentsList = await fetch(`http://localhost:6278/users/departments`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        }
+    })
+
+    const serCompainieDepartmentsListJson = await userCompainieDepartmentsList.json();
+
+    return serCompainieDepartmentsListJson
 }

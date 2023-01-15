@@ -1,4 +1,4 @@
-import { permission, getUserInfo, editUserOwn } from "./requests.js";
+import { permission, getUserInfo, editUserOwn, getCoworkers ,getUserCompainieDepartments } from "./requests.js";
 
 async function avoidPage() {
 
@@ -55,6 +55,7 @@ async function renderUserInfo(info) {
         const modal = document.querySelector(".editUserModal")
 
         modal.showModal()
+
         renderEditedUser()
     })
 
@@ -82,7 +83,48 @@ async function renderEditedUser (){
     })
 }
 
+async function renderCoworkers() {
+
+    const list = await getCoworkers()
+    console.log(list)
+    const coworkersList = list[0].users
+    const ul = document.querySelector(".coworkers__list")
+
+    coworkersList.forEach(element => {
+
+        const card = createCoworkerCard(element)
+
+        ul.appendChild(card)
+    })
+
+    const div = document.querySelector(".companieInfo")
+    const h2 = document.createElement('h2')
+
+    const departmentsList = await getUserCompainieDepartments()
+
+    h2.innerText = `${departmentsList.name} - ${list[0].name}`
+
+    div.append(h2)
+}
+
+function createCoworkerCard(element) {
+
+    const li = document.createElement('li')
+    const span1 = document.createElement('span')
+    const span2 = document.createElement('span')
+
+    li.classList = "coworker__card"
+    span1.classList = "spanName"
+
+    span1.innerText = element.username
+    span2.innerText = element.professional_level
+
+    li.append(span1, span2)
+    return li
+}
+
 renderGetUserInfo()
 logout()
 avoidPage()
 renderUserInfo()
+renderCoworkers()
