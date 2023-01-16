@@ -28,7 +28,6 @@ function createCard(element) {
     const img2 = document.createElement('img')
 
 
-    li.classList = "cards"
     h3.innerText = element.description
     span.innerText = element.name
     span1.innerText = element.companies.name
@@ -218,6 +217,8 @@ async function showOptionsUser() {
 
     const select = document.querySelector("#companiesView")
 
+    select.innerHTML = ""
+
     list.forEach(element => {
 
         const option = createOptionUser(element)
@@ -270,17 +271,15 @@ async function renderDismissList(id) {
 
 
     ul.innerText = ""
-    list.forEach(element => {
+    list.forEach(async element => {
 
-        const card = renderDismissCard(element)
+        const card = await renderDismissCard(element)
 
         ul.append(card)
     })
 }
 
-function renderDismissCard(element) {
-
-    console.log(element)
+async function renderDismissCard(element) {
 
     const li = document.createElement('li')
     const div = document.createElement('div')
@@ -289,11 +288,16 @@ function renderDismissCard(element) {
     const span1 = document.createElement('span')
     const button = document.createElement('button')
 
-    li.classList = "card dismissCardList"
+    li.classList = "dismissCardList"
     h3.innerText = element.username
     span.innerText = element.professional_level
-    span1.innerText = element.department_uuid
+    const departmentsList = await getDepartmentByCompanie("")
+    const department = departmentsList.find(function(item){
+        if(item.uuid == element.department_uuid)
 
+        return item
+    })
+    span1.innerText = department.companies.name
     button.innerText = "Desligar"
 
     button.addEventListener('click', (event) => {

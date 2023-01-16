@@ -2,9 +2,9 @@
 main{
     background-image:url('../assets/Rectangle 7.svg');
     height: 100vh;
+    background-size: cover;
 
     background-position: center top;
-    
 }
 
 form{
@@ -70,5 +70,6 @@ form span{
 @media (min-width: 769px){
     form{
         top: 145px;
+        padding: 40px;
     }
 }

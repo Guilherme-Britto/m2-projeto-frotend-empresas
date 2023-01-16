@@ -1,21 +1,21 @@
-dialog{
+dialog {
     width: 436px;
     padding: 40px;
 }
 
-.closeModal{
+.closeModal {
     position: absolute;
     top: 22px;
     right: 22px;
 }
 
-dialog h3{
+dialog h3 {
     font-size: 2.3rem;
     font-weight: 700;
     margin-bottom: 20px;
 }
 
-dialog input{
+dialog input {
     width: 94.5%;
     height: 46px;
     font-size: 1rem;
@@ -25,18 +25,18 @@ dialog input{
     margin-bottom: 15px;
 }
 
-dialog select{
+dialog select {
     width: 100%;
     height: 52px;
     font-size: 1rem;
-    border:2px solid #00000030;
+    border: 2px solid #00000030;
     color: #000000;
 
     padding-left: 17px;
     margin-bottom: 15px;
 }
 
-dialog button{
+dialog button {
     width: 100%;
     height: 42px;
     font-size: 1rem;
@@ -46,29 +46,116 @@ dialog button{
     color: var(--WhiteFixed);
 }
 
-.editDepartmentForm input{
+.editDepartmentForm input {
     padding-bottom: 75px;
 }
 
-.deleteModal{
+.deleteModal {
     width: 470px;
     padding: 60px 90px;
 }
 
-.deleteModal form{
+.deleteModal form {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.deleteModal button{
+.deleteModal button {
     width: 100%;
     background-color: var(--green);
     border: none;
 }
 
-.deleteModal h3{
+.deleteModal h3 {
     font-size: 1.7rem;
     text-align: center;
     margin-bottom: 38px;
+}
+
+.viewDepartmentModal {
+    width: 857px;
+    padding: 60px;
+}
+
+.descriptionHire__container {
+    width: 100%;
+    display: flex;
+}
+
+.description__container {
+    display: flex;
+
+    flex-direction: column;
+    width: 47%;
+}
+
+.description__container p {
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    margin-top: 10px;
+}
+
+.description__container span {
+    font-size: 1.25rem;
+
+    margin-top: 20px;
+}
+
+.hire__container {
+    display: flex;
+    width: 53%;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.hire__container button {
+    width: 157px;
+    background-color: var(--green);
+}
+
+.usersDismiss {
+    height: 290px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    margin-top: 50px;
+
+    overflow-x: auto;
+    gap: 20px;
+    background-color: var(--Gray);
+}
+
+.dismissCardList div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 280px;
+    height: 160px;
+    background-color: var(--WhiteFixed);
+    border-bottom: solid 1px var(--brand-1);
+
+    padding: 18px;
+}
+
+.dismissCardList h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.dismissCardList span {
+    display: block;
+    font-size: 1rem;
+}
+
+.dismissCardList button{
+    width: 157px;
+    margin: 0 auto;
+
+    border: solid 1px var(--red);
+    color: var(--red);
+    background-color: var(--WhiteFixed);
 }
