@@ -9,6 +9,7 @@ header {
 
 .logo__container {
     display: flex;
+    justify-content: center;
     gap: 11px;
 }
 
@@ -40,9 +41,34 @@ main {
     justify-content: space-between;
 }
 
+.optionBar select{
+    border-radius: 15px;
+    width: 282px;
+    height: 32px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+h2{
+    font-size: 1.4rem;
+    font-weight: 700;
+    align-self: center;
+}
+
 .optionBar button {
     background-color: var(--brand-1);
     color: var(--WhiteFixed);
+    width: 150px;
+    height: 48px;
+    font-size: 1rem;
+    font-weight: 700;
+
+    position: relative;
+}
+
+.createDepartmentBtn img{
+    position: absolute;
+    left: 10px;
 }
 
 .cards {
@@ -53,6 +79,7 @@ main {
 
     height: 385px;
     margin-top: 20px;
+    margin-bottom: 50px;
     background-color: var(--Gray);
 }
 
@@ -64,9 +91,10 @@ main {
 
     padding-left: 30px;
     margin-top: 30px;
-    width: 489px;
+    width: 450px;
     height: 196px;
     background-color: var(--WhiteFixed);
+    border-bottom: 1px solid var(--brand-1);
 }
 
 .card div {
@@ -79,59 +107,4 @@ main {
 
 .card h3{
     font-weight: 700;
-}
-
-dialog{
-    width: 500px;
-    height: 600px;
-}
-
-dialog form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
-    height: 95%;
-}
-
-.viewDepartmentForm{
-    display: block;
-}
-
-.viewDepartmentForm div{
-    display: flex;
-    justify-content: space-around;
-
-    height: 95%;
-}
-
-.viewDepartmentForm div div{
-    display: flex;
-    flex-direction: column;
-}
-
-.viewDepartmentForm{
-    height: 40%;
-}
-
-.usersDismiss{
-    height: 220px;
-    padding: 30px;
-
-    flex-wrap: unset;
-    overflow-y: scroll;
-    justify-content: flex-start;
-    gap: 30px;
-}
-
-.dismissCardList{
-    width: 306px;
-    margin-top: 0;
-}
-
-.dismissCardList div{
-    width: 306px;
-    background-color: var(--WhiteFixed);
-
-    flex-direction: column;
 }

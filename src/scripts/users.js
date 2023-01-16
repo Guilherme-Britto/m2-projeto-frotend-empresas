@@ -1,4 +1,4 @@
-import { getAllUsers, editUser, deleteUser } from "./requests.js";
+import { getAllUsers, editUser, deleteUser, getDepartmentByCompanie } from "./requests.js";
 
 async function renderUser() {
 
@@ -8,15 +8,15 @@ async function renderUser() {
     const list = await getAllUsers()
 
     ul.innerText = ""
-    list.forEach(element => {
+    list.forEach(async element => {
 
-        const card = createCard(element)
+        const card = await createCard(element)
 
         ul.append(card)
     })
 }
 
-function createCard(element) {
+async function createCard(element) {
     const li = document.createElement('li')
     const h3 = document.createElement('h3')
     const span = document.createElement('span')
@@ -34,15 +34,15 @@ function createCard(element) {
 
         renderEditUser(element.uuid)
     })
-
     img2.addEventListener('click', () => {
 
         const modal = document.querySelector('.deleteUserModal')
 
         modal.showModal()
 
-        const h2 = document.querySelector('.deleteUserForm > h2')
-        h2.innerText = `Realmente deseja remover o Usuário ${element.username}`
+        const h3 = document.querySelector('.deleteUserForm > h3')
+
+        h3.innerText = `Realmente deseja remover o Usuário ${element.username}`
 
         renderDeleteUser(element.uuid)
     })
@@ -52,14 +52,19 @@ function createCard(element) {
     h3.innerText = element.username
     span.innerText = element.professional_level
 
+    const departmentsList = await getDepartmentByCompanie("")
+    const department = departmentsList.find(function(item){
+        if(item.uuid == element.department_uuid)
+
+        return item
+    })
     if (element.department_uuid == undefined) {
         span1.innerText = "Não contratado"
     } else {
-        span1.innerText = element.department_uuid
+        span1.innerText = department.companies.name
     }
 
     li.classList = "card"
-    // img.src = "../assets/VectorEye.svg"
     img1.src = "../assets/VectorEdit.svg"
     img2.src = "../assets/VectorTrash.svg"
 

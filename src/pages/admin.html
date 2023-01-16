@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../styles/globalStyle.css">
   <link rel="stylesheet" href="../styles/reset.css">
   <link rel="stylesheet" href="../styles/admin.css">
+  <link rel="stylesheet" href="../styles/modal.css">
 
   <script type="module" defer src="../scripts/admin.js"></script>
   <script type="module" defer src="../scripts/departement.js"></script>
@@ -48,7 +49,7 @@
       </li> -->
     </ul>
 
-    <h2>Usuários cadastrados</h2>
+    <h2 class="logo__container">Usuários cadastrados</h2>
     <ul class="cards users">
 
       <!-- <li class="card">
@@ -69,9 +70,9 @@
 
 
 <dialog class="createDepartmentModal ">
-  <span>X</span>
+  <span class="closeModal">X</span>
   <form class="createDepartmentForm">
-    <h2>Criar Departamento</h2>
+    <h3>Criar Departamento</h3>
     <input id="name" placeholder="Nome do departamento" type="text">
     <input id="description" placeholder="Descrição" type="text">
     <select id="companiesForDepartments">
@@ -82,18 +83,18 @@
 </dialog>
 
 <dialog class="editDepartmentModal">
-  <span>X</span>
+  <span class="closeModal">X</span>
   <form class="editDepartmentForm">
-    <h2>Editar Departamento</h2>
+    <h3>Editar Departamento</h3>
     <input id="descriptionEdit" type="text">
     <button type="submit">Editar departamento</button>
   </form>
 </dialog>
 
 <dialog class="viewDepartmentModal">
-  <span>X</span>
+  <span class="closeModal">X</span>
   <form class="viewDepartmentForm">
-    <h2>Nome do departamento</h2>
+    <h3>Nome do departamento</h3>
     <div>
       <div>
         <p id="descriptionView">Descrição do departamento</p>
@@ -108,7 +109,7 @@
     </div>
     <ul class="cards usersDismiss">
 
-      <li class="card dismissCardList" >
+      <li class="card dismissCardList">
         <div>
           <h3>Username</h3>
           <span>Pleno</span>
@@ -122,9 +123,9 @@
 </dialog>
 
 <dialog class="editUserModal">
-  <span>X</span>
+  <span class="closeModal">X</span>
   <form class="editUsertForm">
-    <h2>Editar Departamento</h2>
+    <h3>Editar Departamento</h3>
     <select name="" id="kind_of_work">
       <option hidden value="">Selecionar modalidade de trabalho </option>
       <option value="home office">Home Office</option>
@@ -142,8 +143,20 @@
   </form>
 </dialog>
 
-<dialog class="deleteUserModal">
-  
+<dialog class="deleteUserModal deleteModal">
+  <span class="closeModal">X</span>
+  <form class="deleteUserForm">
+    <h3></h3>
+    <button>Deletar</button>
+  </form>
 </dialog>
+
+<dialog class="deleteDepartmentModal deleteModal">
+  <span class="closeModal">X</span>
+  <form class="deleteDepartmentForm">
+    <h3></h3>
+    <button>Deletar</button>
+  </form>
+</form>
 
 </html>

@@ -22,14 +22,6 @@ function logout() {
     })
 }
 
-async function renderGetUserInfo(){
-
-    const userInfo = await getUserInfo()
-
-    console.log(userInfo)
-    return userInfo
-}
-
 async function renderUserInfo(info) {
 
     const section = document.querySelector(".userInfo__container")
@@ -86,7 +78,16 @@ async function renderEditedUser (){
 async function renderCoworkers() {
 
     const list = await getCoworkers()
-    console.log(list)
+    const userInfo = await getUserInfo()
+    const section = document.querySelector(".coworkers__container")
+
+    if(!userInfo.department_uuid){
+        section.innerHTML = ""
+        const p = document.createElement('p')
+        p.innerText = "Você ainda não foi contratado"
+
+        return section.append(p)
+    }
     const coworkersList = list[0].users
     const ul = document.querySelector(".coworkers__list")
 
@@ -123,7 +124,6 @@ function createCoworkerCard(element) {
     return li
 }
 
-renderGetUserInfo()
 logout()
 avoidPage()
 renderUserInfo()

@@ -15,8 +15,6 @@ async function renderDepartment(element) {
         ul.append(card)
 
     })
-
-    renderDeleteDepartment()
 }
 
 function createCard(element) {
@@ -78,6 +76,19 @@ function createCard(element) {
 
         input.value = description
         renderEdit(element.uuid)
+    })
+
+    img2.addEventListener('click', () => {
+
+        const modal = document.querySelector('.deleteDepartmentModal')
+
+        modal.showModal()
+
+        const h3 = document.querySelector('.deleteDepartmentForm > h3')
+        h3.innerText = `Realmente deseja deletar o Departamento ${element.name} e demitir seus funcionários? `
+
+
+        renderDeleteDepartment(element.uuid)
     })
 
 
@@ -175,18 +186,15 @@ async function renderNewDepartment() {
 
 }
 
-async function renderDeleteDepartment() {
+async function renderDeleteDepartment(id) {
 
-    const inputs = document.querySelectorAll('.deleteDepartment')
-    inputs.forEach(element => {
+    const button = document.querySelector('.deleteDepartmentForm > button')
 
-        element.addEventListener('click', (event) => {
+    button.addEventListener("click", async (event) => {
+        event.preventDefault()
 
-            deleteDepartment(element.id)
-        })
-
+        deleteDepartment(id)
     })
-
 }
 
 async function renderEdit(id) {
@@ -247,15 +255,15 @@ async function renderHireUser(departmentId) {
     })
 }
 
-async function renderDismissList(id){
+async function renderDismissList(id) {
 
     const usersList = await getAllUsers()
 
-    const list = usersList.filter( function(element) {
-        if(element.department_uuid == id)
+    const list = usersList.filter(function (element) {
+        if (element.department_uuid == id)
 
-        return element
-    } )
+            return element
+    })
 
 
     const ul = document.querySelector(".usersDismiss")
@@ -294,7 +302,7 @@ function renderDismissCard(element) {
         dismissUser(element.uuid)
     })
 
-    div.append( h3, span, span1, button)
+    div.append(h3, span, span1, button)
 
     li.append(div)
     return li

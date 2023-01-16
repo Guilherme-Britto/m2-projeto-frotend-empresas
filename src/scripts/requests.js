@@ -302,6 +302,8 @@ export async function dismissUser ( id) {
     return editedDepartment;
 }
 
+
+
 export async function getUserInfo() {
 
     const userInfo = await fetch(`http://localhost:6278/users/profile`, {
